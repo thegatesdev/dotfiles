@@ -1,0 +1,29 @@
+{ helpers, ... }:
+{
+  imports = builtins.map (helpers.findModule "nixos") [
+    "auto-cpufreq"
+    "boot"
+    "clean_defaults"
+    "firewall"
+    "gamemode"
+    "graphics"
+    "home-manager"
+    "i3"
+    "kernel_xanmod"
+    "keyboard"
+    "keyring"
+    "libinput"
+    "locale"
+    "ly"
+    "neovim"
+    "networkmanager"
+    "nix"
+    "pipewire"
+    "plymouth"
+    "quickemu"
+    "steam"
+    "udisks2"
+    "users"
+    "zsh"
+  ];
+}
