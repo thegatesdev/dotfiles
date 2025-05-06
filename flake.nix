@@ -8,6 +8,9 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    disko.url = "github:nix-community/disko/latest";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -16,7 +19,10 @@
     inputs: 
     let
       helpers = import ./helpers.nix;
-      extraModules = [ inputs.lix-module.nixosModules.default ];
+      extraModules = [ 
+        inputs.lix-module.nixosModules.default
+        inputs.disko.nixosModules.disko
+      ];
     in
     {
       # - System Pure (Laptop)
