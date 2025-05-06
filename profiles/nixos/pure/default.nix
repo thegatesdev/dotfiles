@@ -3,5 +3,8 @@
     ./disko.nix
   ];
 
-  settings.zram.enable = true;
+  settings.zram = {
+    enable = true;
+    optimizeSwap = true;
+  };
 }
