@@ -17,6 +17,7 @@ in
       modules = (mkModules "nixos" profile) ++ extraModules;
       specialArgs = {
         inherit inputs;
+        inherit profile;
       };
     };
   
@@ -32,6 +33,7 @@ in
       modules = (mkModules "home" profile) ++ extraModules;
       extraSpecialArgs = {
         inherit inputs;
+        inherit profile;
       };
     };
 }
