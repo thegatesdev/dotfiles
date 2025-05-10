@@ -18,12 +18,14 @@ in {
       home = "/home/work";
       description = "Work account";
       extraGroups = groups;
+      initialPassword = "";
     };
     chill = {
       isNormalUser = true;
       home = "/home/chill";
       description = "Chill account";
       extraGroups = groups;
+      initialPassword = "";
     };
   };
 }
