@@ -10,6 +10,8 @@
 
     disko.url = "github:nix-community/disko/latest";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+    auto-cpufreq.url = "github:AdnanHodzic/auto-cpufreq/master";
+    auto-cpufreq.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
@@ -19,9 +21,10 @@
     inputs: 
     let
       helpers = import ./helpers.nix;
-      extraModules = [ 
-        inputs.lix-module.nixosModules.default
-        inputs.disko.nixosModules.disko
+      extraModules = with inputs; [ 
+        lix-module.nixosModules.default
+        disko.nixosModules.disko
+        auto-cpufreq.nixosModules.default
       ];
     in
     {
