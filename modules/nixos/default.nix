@@ -12,6 +12,7 @@
     ./nix.nix
     ./nvidia.nix
     ./powersave.nix
+    ./users.nix
     ./zram.nix
   ];
 }

@@ -20,5 +20,5 @@
     dnssec = "false";
     domains = [ "~." ];
   };
-  # TODO extraGroups = ["networkmanager"];
+  settings.users.groups = [ "networkmanager" ];
 }
