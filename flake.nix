@@ -35,9 +35,14 @@
         inherit extraModules;
       };
 
-      # - Home Tim (Default home)
-      homeConfigurations.tim = helpers.buildHome {
-        profile = "tim";
+      # - Work setup
+      homeConfigurations.work = helpers.buildHome {
+        profile = "work";
+        inherit inputs;
+      };
+      # - Chill setup
+      homeConfigurations.chill = helpers.buildHome {
+        profile = "chill";
         inherit inputs;
       };
     };
