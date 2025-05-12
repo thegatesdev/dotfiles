@@ -1,7 +1,16 @@
-{
-  programs.gamemode = {
-    enable = true;
-    settings.general.inhibit_screensaver = 0;
+{ config, lib, ... }:
+with lib;
+let
+  cfg = config.settings.gamemode;
+in {
+  options.settings.gamemode = {
+    enable = mkEnableOption "gamemode application";
   };
-  settings.users.groups = [ "gamemode" ];
+  config = mkIf cfg.enable {
+    programs.gamemode = {
+      enable = true;
+      settings.general.inhibit_screensaver = 0;
+    };
+    settings.users.groups = [ "gamemode" ];
+  };
 }

@@ -5,6 +5,7 @@ let
 in {
   options.settings.bluetooth = {
     enable = mkEnableOption "custom bluetooth settings";
+    app = mkEnableOption "bluetooth control application";
   };
   config = mkIf cfg.enable {
     hardware.bluetooth = {
@@ -17,6 +18,8 @@ in {
         };
       };
     };
-    services.blueman.enable = true;
+    services.blueman = mkIf cfg.app {
+      enable = true;
+    };
   };
 }

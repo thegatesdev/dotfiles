@@ -4,15 +4,25 @@
     ./disko.nix
   ];
 
+  system.stateVersion = "25.05";
+
   settings = {
-    boot.silent = true;
     audio = {
       enable = true;
       sof = true;
       app = true;
       tray = true;
     };
-    bluetooth.enable = true;
+    bluetooth = {
+      enable = true;
+      app = true;
+    };
+    boot.silent = true;
+    gamemode.enable = true;
+    keyring = {
+      enable = true;
+      app = true;
+    };
     nvidia = {
       enable = true;
       sync = true;
