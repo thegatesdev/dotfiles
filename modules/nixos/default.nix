@@ -7,6 +7,7 @@
     ./gamemode.nix
     ./input.nix
     ./keyring.nix
+    ./light.nix
     ./locale.nix
     ./network.nix
     ./nix.nix

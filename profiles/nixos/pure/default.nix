@@ -23,6 +23,7 @@
       enable = true;
       app = true;
     };
+    light.enable = true;
     nvidia = {
       enable = true;
       sync = true;
