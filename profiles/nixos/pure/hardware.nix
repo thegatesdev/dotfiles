@@ -1,10 +1,9 @@
-{ config, ... }:
-{
+{config, ...}: {
   boot = {
     kernelParams = ["amd_pstate=active"];
-    blacklistedKernelModules = [ "k10temp" ];
-    extraModulePackages = [ config.boot.kernelPackages.zenpower ];
-    kernelModules = [ "zenpower" ];
+    blacklistedKernelModules = ["k10temp"];
+    extraModulePackages = [config.boot.kernelPackages.zenpower];
+    kernelModules = ["zenpower"];
   };
   hardware = {
     amdgpu.initrd.enable = true;

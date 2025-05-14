@@ -1,6 +1,10 @@
-{ pkgs, config, lib, ... }:
-with lib;
-let
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+with lib; let
   cfg = config.settings.keyring;
 in {
   options.settings.keyring = {
@@ -12,6 +16,6 @@ in {
     programs.seahorse = mkIf cfg.app {
       enable = true;
     };
-    environment.systemPackages = [ pkgs.libsecret ];  
+    environment.systemPackages = [pkgs.libsecret];
   };
 }

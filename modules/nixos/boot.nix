@@ -1,6 +1,9 @@
-{ pkgs, lib, ... }:
-with lib;
-let
+{
+  pkgs,
+  lib,
+  ...
+}:
+with lib; let
   cfg = config.settings.boot;
 in {
   options.settings.boot = {

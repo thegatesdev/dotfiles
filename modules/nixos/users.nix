@@ -1,6 +1,9 @@
-{ config, lib, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  ...
+}:
+with lib; let
   cfg = config.settings.users;
 in {
   options.settings.users = {
@@ -9,9 +12,8 @@ in {
       default = [];
     };
   };
-  config.users.users = 
-  let
-    groups = [ "wheel" "video" "audio" ] ++ cfg.groups;
+  config.users.users = let
+    groups = ["wheel" "video" "audio"] ++ cfg.groups;
   in {
     work = {
       isNormalUser = true;

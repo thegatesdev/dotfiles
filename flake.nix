@@ -17,33 +17,30 @@
     nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs =
-    inputs: 
-    let
-      helpers = import ./helpers.nix;
-      extraModules = with inputs; [ 
-        lix-module.nixosModules.default
-        disko.nixosModules.disko
-        auto-cpufreq.nixosModules.default
-      ];
-    in
-    {
-      # - System Pure (Laptop)
-      nixosConfigurations.pure = helpers.buildNixos {
-        profile = "pure";
-        inherit inputs;
-        inherit extraModules;
-      };
-
-      # - Work setup
-      homeConfigurations.work = helpers.buildHome {
-        profile = "work";
-        inherit inputs;
-      };
-      # - Chill setup
-      homeConfigurations.chill = helpers.buildHome {
-        profile = "chill";
-        inherit inputs;
-      };
+  outputs = inputs: let
+    helpers = import ./helpers.nix;
+    extraModules = with inputs; [
+      lix-module.nixosModules.default
+      disko.nixosModules.disko
+      auto-cpufreq.nixosModules.default
+    ];
+  in {
+    # - System Pure (Laptop)
+    nixosConfigurations.pure = helpers.buildNixos {
+      profile = "pure";
+      inherit inputs;
+      inherit extraModules;
     };
+
+    # - Work setup
+    homeConfigurations.work = helpers.buildHome {
+      profile = "work";
+      inherit inputs;
+    };
+    # - Chill setup
+    homeConfigurations.chill = helpers.buildHome {
+      profile = "chill";
+      inherit inputs;
+    };
+  };
 }

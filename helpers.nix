@@ -4,15 +4,13 @@ let
     ./modules/${type}
     ./profiles/${type}/${profile}
   ];
-in
-{
-  buildNixos =
-    {
-      inputs,
-      profile,
-      system ? defaultSystem,
-      extraModules ? [],
-    }:
+in {
+  buildNixos = {
+    inputs,
+    profile,
+    system ? defaultSystem,
+    extraModules ? [],
+  }:
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
       modules = (mkModules "nixos" profile) ++ extraModules;
@@ -21,15 +19,14 @@ in
         inherit profile;
       };
     };
-  
-  buildHome =
-    {
-      inputs,
-      profile,
-      system ? defaultSystem,
-      pkgs ? inputs.nixpkgs.legacyPackages."${system}",
-      extraModules ? [],
-    }:
+
+  buildHome = {
+    inputs,
+    profile,
+    system ? defaultSystem,
+    pkgs ? inputs.nixpkgs.legacyPackages."${system}",
+    extraModules ? [],
+  }:
     inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       modules = (mkModules "home" profile) ++ extraModules;

@@ -18,7 +18,7 @@
     enable = true;
     dnsovertls = "true";
     dnssec = "false";
-    domains = [ "~." ];
+    domains = ["~."];
   };
-  settings.users.groups = [ "networkmanager" ];
+  settings.users.groups = ["networkmanager"];
 }

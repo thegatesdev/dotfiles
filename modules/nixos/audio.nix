@@ -1,6 +1,10 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let 
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
   cfg = config.settings.audio;
 in {
   options.settings.audio = {
@@ -19,9 +23,9 @@ in {
       jack.enable = true;
     };
     environment.systemPackages = mkMerge [
-      (mkIf cfg.sof [ pkgs.sof-firmware ])
-      (mkIf cfg.app [ pkgs.pavucontrol ])
-      (mkIf cfg.tray [ pkgs.volctl ])
+      (mkIf cfg.sof [pkgs.sof-firmware])
+      (mkIf cfg.app [pkgs.pavucontrol])
+      (mkIf cfg.tray [pkgs.volctl])
     ];
   };
 }

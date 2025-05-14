@@ -1,6 +1,9 @@
-{ config, lib, ... }:
-with lib;
-let 
+{
+  config,
+  lib,
+  ...
+}:
+with lib; let
   cfg = config.settings.bluetooth;
 in {
   options.settings.bluetooth = {

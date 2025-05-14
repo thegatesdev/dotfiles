@@ -1,6 +1,9 @@
-{ config, lib, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  ...
+}:
+with lib; let
   cfg = config.settings.gamemode;
 in {
   options.settings.gamemode = {
@@ -11,6 +14,6 @@ in {
       enable = true;
       settings.general.inhibit_screensaver = 0;
     };
-    settings.users.groups = [ "gamemode" ];
+    settings.users.groups = ["gamemode"];
   };
 }

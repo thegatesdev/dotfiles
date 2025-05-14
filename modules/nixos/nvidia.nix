@@ -1,6 +1,9 @@
-{ config, lib, ... }:
-with lib;
-let 
+{
+  config,
+  lib,
+  ...
+}:
+with lib; let
   cfg = config.settings.nvidia;
 in {
   options.settings.nvidia = {
@@ -48,7 +51,7 @@ in {
         ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto", ATTR{remove}="1"
         ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
       '';
-      boot.blacklistedKernelModules = [ "nouveau" "nvidia" "nvidia_drm" "nvidia_modeset" ];
+      boot.blacklistedKernelModules = ["nouveau" "nvidia" "nvidia_drm" "nvidia_modeset"];
     })
   ];
 }
