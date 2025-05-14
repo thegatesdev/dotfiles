@@ -1,8 +1,9 @@
 let
   defaultSystem = "x86_64-linux";
-  modulesPath = for: ./modules/${for};
-  profilePath = for: name: ./profiles/${for}/${name};
-  mkModules = for: profile: [ (modulesPath for) (profilePath for profile) ];
+  mkModules = type: profile: [
+    ./modules/${type}
+    ./profiles/${type}/${profile}
+  ];
 in
 {
   buildNixos =
