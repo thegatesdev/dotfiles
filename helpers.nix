@@ -26,10 +26,11 @@ in
       inputs,
       profile,
       system ? defaultSystem,
+      pkgs ? inputs.nixpkgs.legacyPackages."${system}",
       extraModules ? [],
     }:
     inputs.home-manager.lib.homeManagerConfiguration {
-      pkgs = inputs.nixpkgs.legacyPackages."${system}";
+      inherit pkgs;
       modules = (mkModules "home" profile) ++ extraModules;
       extraSpecialArgs = {
         inherit inputs;
