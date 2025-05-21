@@ -9,8 +9,8 @@
     amdgpu.initrd.enable = true;
     cpu.amd.updateMicrocode = true;
     nvidia.prime = {
-      nvidiaBusId = "";
-      amdgpuBusId = "";
+      nvidiaBusId = "PCI:0:1:0";
+      amdgpuBusId = "PCI:0:74:0";
     };
   };
   services.hdapsd.enable = true;
