@@ -31,6 +31,12 @@
       inherit inputs;
       inherit extraModules;
     };
+    # - System Yume (Staging VM)
+    nixosConfigurations.yume = helpers.buildNixos {
+      profile = "yume";
+      inherit inputs;
+      inherit extraModules;
+    };
 
     # - Work setup
     homeConfigurations.work = helpers.buildHome {
