@@ -15,7 +15,7 @@ in {
       enable = true;
       algorithm = "zstd";
       priority = 5;
-      memoryPercent = 100;
+      memoryPercent = 30;
     };
     boot.kernel.sysctl = mkIf cfg.optimizeSwap {
       "vm.swappiness" = 180;
