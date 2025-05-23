@@ -1,6 +1,6 @@
 {
   imports = [
-    ../pure/disko.nix
+    ./disko.nix
   ];
 
   system.stateVersion = "25.05";
