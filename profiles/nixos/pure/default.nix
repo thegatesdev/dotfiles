@@ -17,6 +17,10 @@
       app = true;
     };
     boot.silent = true;
+    disk = {
+      enable = true;
+      main = "/dev/disk/by-id/placeholder";
+    };
     gamemode.enable = true;
     keyring = {
       enable = true;
