@@ -17,7 +17,7 @@
     nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs: 
+  outputs = inputs:
     with import ./helpers.nix; {
       # - System Pure (Laptop)
       nixosConfigurations.pure = buildNixos {
