@@ -1,6 +1,6 @@
 let
   defaultSystem = "x86_64-linux";
-  mkModules = type: profile: [
+  buildModules = type: profile: [
     ./modules/${type}
     ./profiles/${type}/${profile}
   ];
@@ -9,14 +9,12 @@ in {
     inputs,
     profile,
     system ? defaultSystem,
-    extraModules ? [],
   }:
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
-      modules = (mkModules "nixos" profile) ++ extraModules;
+      modules = buildModules "nixos" profile;
       specialArgs = {
         inherit inputs;
-        inherit profile;
       };
     };
 
@@ -25,14 +23,12 @@ in {
     profile,
     system ? defaultSystem,
     pkgs ? inputs.nixpkgs.legacyPackages."${system}",
-    extraModules ? [],
   }:
     inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      modules = (mkModules "home" profile) ++ extraModules;
+      modules = buildModules "home" profile;
       extraSpecialArgs = {
         inherit inputs;
-        inherit profile;
       };
     };
 }
