@@ -4,6 +4,7 @@
     ./bluetooth.nix
     ./boot.nix
     ./clean.nix
+    ./disk.nix
     ./gamemode.nix
     ./input.nix
     ./keyring.nix
