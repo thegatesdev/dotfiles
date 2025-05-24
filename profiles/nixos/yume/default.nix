@@ -1,8 +1,4 @@
 {
-  imports = [
-    ./disko.nix
-  ];
-
   system.stateVersion = "25.05";
 
   settings = {
@@ -17,6 +13,10 @@
       app = true;
     };
     boot.silent = true;
+    disk = {
+      enable = true;
+      main = "/dev/nvme0n1";
+    };
     gamemode.enable = true;
     keyring = {
       enable = true;
