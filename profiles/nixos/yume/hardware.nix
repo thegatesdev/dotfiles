@@ -5,4 +5,5 @@
     dragAndDrop = true;
     vboxsf = true;
   };
+  boot.initrd.checkJournalingFS = false;
 }
