@@ -29,9 +29,6 @@ in {
         initrd.verbose = false;
         kernelParams = [
           "quiet"
-          "splash"
-          "plymouth.nolog"
-          "plymouth.use-simpledrm"
           "boot.shell_on_fail"
           "loglevel=3"
           "rd.systemd.show_status=auto"
