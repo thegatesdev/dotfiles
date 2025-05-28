@@ -16,7 +16,6 @@
       enable = true;
       app = true;
     };
-    boot.silent = true;
     disk = {
       enable = true;
       main = "/dev/nvme0n1";
