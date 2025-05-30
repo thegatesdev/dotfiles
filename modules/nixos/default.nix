@@ -6,6 +6,7 @@
     ./clean.nix
     ./disk.nix
     ./gamemode.nix
+    ./home.nix
     ./input.nix
     ./keyring.nix
     ./light.nix
@@ -14,7 +15,6 @@
     ./nix.nix
     ./nvidia.nix
     ./powersave.nix
-    ./users.nix
     ./zram.nix
   ];
 }
