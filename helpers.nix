@@ -8,27 +8,29 @@ in {
   buildNixos = {
     inputs,
     profile,
+    users ? [],
     system ? defaultSystem,
   }:
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
       modules = buildModules "nixos" profile;
       specialArgs = {
-        inherit inputs;
+        inherit inputs users;
       };
     };
 
-  buildHome = {
+  buildUser = {
     inputs,
     profile,
     system ? defaultSystem,
     pkgs ? inputs.nixpkgs.legacyPackages."${system}",
-  }:
-    inputs.home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      modules = buildModules "home" profile;
+  }: rec {
+    modules = buildModules "home" profile;
+    home = inputs.home-manager.lib.homeManagerConfiguration {
+      inherit pkgs modules;
       extraSpecialArgs = {
         inherit inputs;
       };
     };
+  };
 }

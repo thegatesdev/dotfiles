@@ -18,27 +18,10 @@
   };
 
   outputs = inputs:
-    with import ./helpers.nix; {
-      # - System Pure (Laptop)
-      nixosConfigurations.pure = buildNixos {
-        profile = "pure";
-        inherit inputs;
-      };
-      # - System Yume (Staging VM)
-      nixosConfigurations.yume = buildNixos {
-        profile = "yume";
-        inherit inputs;
-      };
-
-      # - Work setup
-      homeConfigurations.work = buildHome {
-        profile = "work";
-        inherit inputs;
-      };
-      # - Chill setup
-      homeConfigurations.chill = buildHome {
-        profile = "chill";
-        inherit inputs;
-      };
+    with (import ./profiles.nix inputs); {
+      nixosConfigurations.pure = systems.pure;
+      nixosConfigurations.yume = systems.yume;
+      homeConfigurations.chill = users.chill.home;
+      homeConfigurations.work = users.work.home;
     };
 }
