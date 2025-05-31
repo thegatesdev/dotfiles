@@ -1,4 +1,6 @@
-{
+{inputs, ...}: {
+  imports = [inputs.lix-module.nixosModules.default];
+
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
 
