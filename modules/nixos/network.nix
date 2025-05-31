@@ -13,5 +13,4 @@
       "194.242.2.5"
     ];
   };
-  settings.users.groups = ["networkmanager"];
 }
