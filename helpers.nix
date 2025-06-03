@@ -16,7 +16,7 @@ in {
       inherit system;
       modules = buildModules "nixos" profile;
       specialArgs = {
-        inherit inputs users sharedHome;
+        inherit inputs system users sharedHome;
       };
     };
 
@@ -33,7 +33,7 @@ in {
       inherit pkgs;
       modules = buildModules "home" profile;
       extraSpecialArgs = {
-        inherit inputs;
+        inherit inputs system;
       };
     };
   };
