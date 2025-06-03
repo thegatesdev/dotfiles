@@ -24,6 +24,9 @@ in {
     useGlobalPkgs = true;
     useUserPackages = true;
 
+    extraSpecialArgs = {
+      inherit inputs;
+    };
     sharedModules = [sharedHome];
     users = lib.attrsets.mapAttrs mkHomeUser users;
   };
