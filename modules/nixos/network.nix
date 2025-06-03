@@ -6,7 +6,10 @@
     networkmanager = {
       enable = true;
       dns = "none";
-      wifi.powersave = true;
+      wifi = {
+        powersave = true;
+        backend = "iwd";
+      };
     };
 
     nameservers = [
