@@ -1,19 +1,21 @@
 inputs:
 with import ./helpers.nix; rec {
-  users.chill = buildUser {
+  inherit sharedHome;
+
+  users.chill = mkUser {
     profile = "chill";
     inherit inputs;
   };
-  users.work = buildUser {
+  users.work = mkUser {
     profile = "work";
     inherit inputs;
   };
 
-  systems.pure = buildNixos {
+  systems.pure = mkSystem {
     profile = "pure";
     inherit inputs users;
   };
-  systems.yume = buildNixos {
+  systems.yume = mkSystem {
     profile = "yume";
     inherit inputs users;
   };

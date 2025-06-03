@@ -6,7 +6,6 @@
     ./clean.nix
     ./disk.nix
     ./gamemode.nix
-    ./home.nix
     ./input.nix
     ./keyring.nix
     ./light.nix

@@ -31,7 +31,7 @@ Most included NixOS modules are the result of following NixOS Wiki for some part
 ## ToDo Overview
 
 - [x] Create and verify modules for running a basic system
-- [ ] Add users to systems with Home Manager support
+- [x] Add users to systems with Home Manager support
 - [ ] Create SwayWM configuration
 - [ ] Create i3 configuration _(if needed)_
 - [ ] List, install and configure necessary programs

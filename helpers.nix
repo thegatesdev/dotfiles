@@ -4,10 +4,11 @@ let
     ./modules/${type}
     ./profiles/${type}/${profile}
   ];
+  sharedHome = ./modules/home;
 in {
-  buildNixos = {
-    inputs,
+  mkSystem = {
     profile,
+    inputs,
     users ? [],
     system ? defaultSystem,
   }:
@@ -15,21 +16,22 @@ in {
       inherit system;
       modules = buildModules "nixos" profile;
       specialArgs = {
-        inherit inputs users;
+        inherit inputs users sharedHome;
       };
     };
 
-  buildUser = {
+  mkUser = {
     inputs,
     profile,
     system ? defaultSystem,
     pkgs ? inputs.nixpkgs.legacyPackages."${system}",
     description ? "User profile '${profile}'",
-  }: rec {
+  }: {
     inherit description;
-    modules = buildModules "home" profile;
+    profile = ./profiles/home/${profile};
     home = inputs.home-manager.lib.homeManagerConfiguration {
-      inherit pkgs modules;
+      inherit pkgs;
+      modules = buildModules "home" profile;
       extraSpecialArgs = {
         inherit inputs;
       };
