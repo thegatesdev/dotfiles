@@ -48,7 +48,7 @@ in {
                   "commit=60"
                   "data=journal"
                   "journal_async_commit"
-                ]
+                ];
               };
             };
             swap = {
