@@ -11,4 +11,9 @@
     options = "--delete-older-than 3d";
     randomizedDelaySec = "10m";
   };
+
+  system.switch = {
+    enable = false;
+    enableNg = true;
+  };
 }
