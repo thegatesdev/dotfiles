@@ -43,6 +43,12 @@ in {
                 type = "filesystem";
                 format = "ext4";
                 mountpoint = "/";
+                mountOptions = [
+                  "noatime"
+                  "commit=60"
+                  "data=journal"
+                  "journal_async_commit"
+                ]
               };
             };
             swap = {
