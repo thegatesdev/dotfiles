@@ -1,7 +1,5 @@
 inputs:
 with import ./helpers.nix; rec {
-  inherit sharedHome;
-
   users.chill = mkUser {
     profile = "chill";
     inherit inputs;
