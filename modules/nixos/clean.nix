@@ -1,6 +1,5 @@
-{modulesPath, ...}:
-{
-  imports = [ "${modulesPath}/profiles/perlless.nix" ];
+{modulesPath, ...}: {
+  imports = ["${modulesPath}/profiles/perlless.nix"];
 
   environment.defaultPackages = [];
   documentation.man.enable = false;
