@@ -2,56 +2,53 @@
 
 This repository contains my system configuration as a Nix Flake.
 
-## Overview
+_All modules are intended for my own personal use. I make no promises regarding usfullness, usability or stability. Use/copy paste at your own risk._
 
-All configuration uses standard Nix features, without additional structuring libraries.
-
-This is intended as a personal flake. I make no promises regarding usfullness, usability or stability. Use/copy paste at your own risk.
+**This is still in development!**
 
 ## Structure
 
-The `./modules` directory contains all re-usable Nix modules for NixOS and Home Manager.
+| Path                               | Description                                        |
+| ---------------------------------- | -------------------------------------------------- |
+| [`./modules/{type}`](./modules/)   | Re-usable Nix modules for NixOS and Home Manager   |
+| [`./profiles/{type}`](./profiles/) | System and user specific Nix modules               |
+| [`./helpers.nix`](./helpers.nix)   | Helper functions for creating system user profiles |
+| [`./profiles.nix`](./profiles.nix) | Attribute set with system and user profiles        |
 
-The `./profiles` directory contains all system / user specific Nix modules.
+## Profiles
 
-The `./helpers.nix` module contains two helper functions for creating a NixOS system and a Home Manager configuration from a profile name. A profile is loaded by including *all* modules for it's type (`nixos` or `home`), and the profile itself.
+| Name                                            | Description                                 |
+| ----------------------------------------------- | ------------------------------------------- |
+| [nixos/pure](./profiles/nixos/pure/default.nix) | Primary system, an Acer Nitro V15 laptop    |
+| [nixos/yume](./profiles/nixos/yume/default.nix) | Staging/testing VirtualBox VM               |
+| [home/chill](./profiles/home/chill/default.nix) | Asthetic home for personal work and leisure |
+| [home/work](./profiles/home/work/default.nix)   | Professional work environment               |
 
-## NixOS Profiles
+## Modules
 
-### Pure
+Most included NixOS modules are the result of following NixOS Wiki for some particular topic. All modules are included by default. More advanced modules declare options that can be defined in the profile to modify behaviour.
 
-My primary system, an Acer Nitro V15 laptop.
-Most existing modules are enabled on this machine.
+## ToDo Overview
 
-|Part|Info|
-|-|-|
-|CPU|AMD Ryzen 7 7735HS (3.20 GHz)|
-|GPU|NVIDIA GeForce RTX 4060 Laptop GPU|
-|RAM|*2x* 16GB DDR5|
-
-### Yume
-
-My staging / testing VM system.
-Exists to test modules from Windows, removes some hardware specific modules and includes VirtualBox Guest Additions.
-
-Will eventually transition to a minimal install medium / USB system.
-
-## Home Profiles
-
-### Chill
-
-For when I'm working on my own things, hanging out or gaming.
-
-### Work
-
-For when I'm at work, or need to focus on work tasks.
+- [x] Create and verify modules for running a basic system
+- [ ] Add users to systems with Home Manager support
+- [ ] Create SwayWM configuration
+- [ ] Create i3 configuration _(if needed)_
+- [ ] List, install and configure necessary programs
+- [ ] Set up theme module structure
+- [ ] Create themes
 
 ## Trivia
 
+### Laptop specs
+
+| Part | Info                               |
+| ---- | ---------------------------------- |
+| CPU  | AMD Ryzen 7 7735HS (3.20 GHz)      |
+| GPU  | NVIDIA GeForce RTX 4060 Laptop GPU |
+| RAM  | _2x_ 16GB DDR5                     |
+
 ### Why Nix?
 
-NixOS is the closest thing to what *I think* is a perfect Operating System. Not knowing what changes were made to a system was a major gripe from me on both Windows and Linux. I started writing documentation for every modification. With NixOS, the system is my documentation.
-
-### Why no library (Flake parts and such)?
-
-This setup works for me, and it's easy to understand. I don't need to build for the full range of system types.
+NixOS is the closest thing to what _I think_ is a perfect Operating System. Not knowing what changes were made to a system was a major gripe from me on both Windows and Linux. I started writing documentation for every modification. With NixOS, the system is my documentation.
+Additionally, because NixOS is a higher level description of the system, it can incorporate fixes and best practices to parts of the system without the user having to worry about them.
