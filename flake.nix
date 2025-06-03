@@ -7,6 +7,7 @@
     lix-module.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     disko.url = "github:nix-community/disko/latest";
     disko.inputs.nixpkgs.follows = "nixpkgs";
