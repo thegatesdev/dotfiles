@@ -1,3 +1,6 @@
 {
-  imports = [];
+  imports = [
+    ./alejandra.nix
+    ./helix.nix
+  ];
 }
