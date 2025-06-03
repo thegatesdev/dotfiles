@@ -15,6 +15,8 @@
     ];
   };
 
+  systemd.services.NetworkManager-wait-online.enable = false;
+
   services.dnscrypt-proxy2 = {
     enable = true;
     settings = {
