@@ -9,5 +9,6 @@
     automatic = true;
     dates = "daily";
     options = "--delete-older-than 3d";
+    randomizedDelaySec = "10m";
   };
 }
