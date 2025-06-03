@@ -1,3 +1,4 @@
+{pkgs, ...}:
 {
   programs.helix = {
     enable = true;
@@ -5,5 +6,12 @@
     settings = {
       theme = "onedarker";
     };
+    languages.language = [
+      {
+        name = "nix";
+        auto-format = true;
+        formatter.command = "${pkgs.nixfmt}/bin/nixfmt";
+      }
+    ];
   };
 }

@@ -16,8 +16,6 @@
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
-    alejandra.url = "github:kamadorueda/alejandra/4.0.0";
-    alejandra.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs:
