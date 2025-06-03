@@ -24,7 +24,9 @@ in {
     profile,
     system ? defaultSystem,
     pkgs ? inputs.nixpkgs.legacyPackages."${system}",
+    description ? "User profile '${profile}'",
   }: rec {
+    inherit description;
     modules = buildModules "home" profile;
     home = inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs modules;
