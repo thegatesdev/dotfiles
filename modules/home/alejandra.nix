@@ -1,9 +1,9 @@
 {
   inputs,
-  system,
+  pkgs,
   ...
 }: {
   home.packages = [
-    inputs.alejandra.defaultPackage.${system}
+    inputs.alejandra.defaultPackage.${pkgs.system}
   ];
 }
