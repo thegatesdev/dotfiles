@@ -16,6 +16,9 @@ in {
       type = types.str;
     };
   };
+  config = {
+    services.fstrim.enable = true;
+  };
   config.disko.devices = mkIf cfg.enable {
     disk = {
       main = {
