@@ -19,9 +19,12 @@
   };
 
   outputs = inputs:
-    with (import ./profiles.nix inputs); {
-      nixosConfigurations.pure = systems.pure;
-      nixosConfigurations.yume = systems.yume;
+    with import ./profiles (import ./helpers {
+      inherit inputs;
+      defaultSystem = "x86_64-linux";
+    }); {
+      nixosConfigurations.pure = systems.pure.nixos;
+      nixosConfigurations.yume = systems.yume.nixos;
       homeConfigurations.chill = users.chill.home;
       homeConfigurations.work = users.work.home;
     };
