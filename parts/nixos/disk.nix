@@ -11,7 +11,7 @@ in {
     inputs.disko.nixosModules.disko
   ];
   options.settings.disk = {
-    enable = mkEnableOption "disk configuration";
+    enable = mkEnableOption "custom disk configuration";
     main = mkOption {
       type = types.str;
     };
