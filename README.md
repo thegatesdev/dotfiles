@@ -8,12 +8,12 @@ _All modules are intended for my own personal use. I make no promises regarding 
 
 ## Structure
 
-| Path                               | Description                                        |
-| ---------------------------------- | -------------------------------------------------- |
-| [`./modules/{type}`](./modules/)   | Re-usable Nix modules for NixOS and Home Manager   |
-| [`./profiles/{type}`](./profiles/) | System and user specific Nix modules               |
-| [`./helpers.nix`](./helpers.nix)   | Helper functions for creating system user profiles |
-| [`./profiles.nix`](./profiles.nix) | Attribute set with system and user profiles        |
+| Path                                   | Description                                        |
+| -------------------------------------- | -------------------------------------------------- |
+| [`./parts/{type}`](./parts/)           | Re-usable Nix modules                              |
+| [`./profiles/{type}`](./profiles/)     | System and user specific Nix modules               |
+| [`./helpers`](./helpers/default.nix)   | Helper functions for creating system user profiles |
+| [`./profiles`](./profiles/default.nix) | Attribute set defining system and user profiles    |
 
 ## Profiles
 
@@ -24,9 +24,9 @@ _All modules are intended for my own personal use. I make no promises regarding 
 | [home/chill](./profiles/home/chill/default.nix) | Asthetic home for personal work and leisure |
 | [home/work](./profiles/home/work/default.nix)   | Professional work environment               |
 
-## Modules
+## Parts
 
-Most included NixOS modules are the result of following NixOS Wiki for some particular topic. All modules are included by default. More advanced modules declare options that can be defined in the profile to modify behaviour.
+Most included parts are the result of following NixOS Wiki for some particular topic. All parts are included by default. More advanced parts declare options that can be defined in the profile to modify behaviour.
 
 ## ToDo Overview
 
