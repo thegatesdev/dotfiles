@@ -18,14 +18,15 @@
     nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs:
-    with import ./profiles (import ./helpers {
-      inherit inputs;
-      defaultSystem = "x86_64-linux";
-    }); {
-      nixosConfigurations.pure = systems.pure.nixos;
-      nixosConfigurations.yume = systems.yume.nixos;
-      homeConfigurations.chill = users.chill.home;
-      homeConfigurations.work = users.work.home;
+  outputs = inputs: let
+    helpers = import ./helpers inputs;
+    profiles = import ./profiles helpers;
+    defaultSystem = "x86_64-linux";
+  in
+    with profiles; {
+      nixosConfigurations.pure = systems.pure.nixos defaultSystem;
+      nixosConfigurations.yume = systems.yume.nixos defaultSystem;
+      homeConfigurations.chill = users.chill.home defaultSystem;
+      homeConfigurations.work = users.work.home defaultSystem;
     };
 }
