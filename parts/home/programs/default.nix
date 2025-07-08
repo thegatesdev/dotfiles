@@ -1,5 +1,8 @@
-{pkgs, ...}:
-{
+{pkgs, ...}: {
+  imports = [
+    ./vscode
+  ];
+
   home.packages = [
     pkgs.vivaldi
     pkgs.chromium-codecs-ffmpeg-extra
