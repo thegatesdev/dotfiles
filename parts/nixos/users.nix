@@ -3,6 +3,7 @@
   lib,
   users,
   homeParts,
+  system,
   ...
 }: let
   mkSystemUser = name: user: {
@@ -23,7 +24,7 @@ in {
     useUserPackages = true;
 
     extraSpecialArgs = {
-      inherit inputs;
+      inherit inputs system;
     };
     sharedModules = [homeParts];
     users = lib.attrsets.mapAttrs mkHomeUser users;
