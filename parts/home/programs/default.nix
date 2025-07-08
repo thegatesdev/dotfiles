@@ -5,15 +5,21 @@
 
   home.packages = [
     pkgs.vivaldi
-    pkgs.chromium-codecs-ffmpeg-extra
+    pkgs.vivaldi-ffmpeg-codecs
+    pkgs.gimp3-with-plugins
+    pkgs.keepassxc
+    pkgs.thunderbird
   ];
   services = {
     flameshot.enable = true;
+    dunst.enable = true;
+    network-manager-applet.enable = true;
   };
   programs = {
+    vesktop.enable = true;
     git = {
       enable = true;
-      userName  = "thegatesdev";
+      userName = "thegatesdev";
       userEmail = "69715898+thegatesdev@users.noreply.github.com";
     };
     helix = {
@@ -27,5 +33,5 @@
         }
       ];
     };
-  }
+  };
 }
