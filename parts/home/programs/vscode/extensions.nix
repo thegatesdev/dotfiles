@@ -3,8 +3,6 @@ with marketplace; [
   angular.ng-template
   astro-build.astro-vscode
   activitywatch.aw-watcher-vscode
-  # beardedbear.beardedicons
-  # beardedbear.beardedtheme
   biomejs.biome
   editorconfig.editorconfig
   emeryao.file-counter
