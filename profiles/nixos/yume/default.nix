@@ -26,6 +26,7 @@
       app = true;
     };
     light.enable = true;
+    support.swaywm = true;
     zram = {
       enable = true;
       optimizeSwap = true;
