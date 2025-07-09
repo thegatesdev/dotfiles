@@ -15,7 +15,7 @@ in {
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
       userSettings = import ./settings.nix;
-      extensions = import ./plugins.nix {
+      extensions = import ./extensions.nix {
         marketplace = extensions.vscode-marketplace;
       };
     };
