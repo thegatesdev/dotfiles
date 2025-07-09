@@ -35,7 +35,7 @@ Most included parts are the result of following NixOS Wiki for some particular t
 - [ ] Create SwayWM configuration
 - [ ] Create i3 configuration _(if needed)_
 - [ ] List, install and configure necessary programs
-- [ ] Set up theme module structure
+- [x] Set up theme module structure
 - [ ] Create themes
 
 ## Trivia
