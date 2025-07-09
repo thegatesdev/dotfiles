@@ -13,7 +13,9 @@
     extraGroups = user.groups;
     initialPassword = name;
   };
-  mkHomeUser = name: user: user.profile;
+  mkHomeUser = name: user: {
+    imports = [user.profile user.theme];
+  };
 in {
   imports = [inputs.home-manager.nixosModules.home-manager];
 
