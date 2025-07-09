@@ -1,8 +1,4 @@
 {pkgs, ...}: {
-  imports = [
-    ./vscode
-  ];
-
   home.packages = [
     pkgs.vivaldi
     pkgs.vivaldi-ffmpeg-codecs

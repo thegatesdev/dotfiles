@@ -1,5 +1,7 @@
 {
   imports = [
-    ./programs
+    ./sway
+    ./vscode
+    ./generic.nix
   ];
 }
