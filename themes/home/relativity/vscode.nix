@@ -1,7 +1,11 @@
-{inputs, ...}: let
+{
+  inputs,
+  system,
+  ...
+}: let
   extensions = inputs.nix-vscode-extensions.extensions.${system};
 in {
-  programs.vscode = {
+  programs.vscode.profiles.default = {
     extensions = with extensions.vscode-marketplace; [
       beardedbear.beardedicons
       beardedbear.beardedtheme
