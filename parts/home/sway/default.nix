@@ -16,7 +16,7 @@ in {
       enable = true;
       package = mkIf cfg.enable pkgs.swayfx;
       wrapperFeatures.gtk = true;
-      # config = import ./config.nix;
+      config = {};
     };
   };
 }
