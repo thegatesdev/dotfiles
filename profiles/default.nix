@@ -4,24 +4,24 @@
   ...
 }: rec {
   users.chill = mkUser {
-    name = "chill";
-    themeName = "relativity";
+    profile = "chill";
+    theme = "relativity";
     groups = ["wheel" "video" "audio" "networkmanager" "gamemode"];
   };
   users.work = mkUser {
-    name = "work";
-    themeName = "relativity";
+    profile = "work";
+    theme = "relativity";
     groups = ["wheel" "video" "audio" "networkmanager"];
   };
 
   systems.pure = mkSystem {
-    name = "pure";
-    themeName = "relativity";
+    profile = "pure";
+    theme = "relativity";
     inherit users;
   };
   systems.yume = mkSystem {
-    name = "yume";
-    themeName = "relativity";
+    profile = "yume";
+    theme = "relativity";
     inherit users;
   };
 }

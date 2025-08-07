@@ -6,13 +6,13 @@ inputs: let
   nixosParts = mkParts "nixos";
   homeParts = mkParts "home";
 in rec {
-  mkSystem = {
-    name,
-    themeName,
+  mkSystem = args @ {
+    profile,
+    theme,
     users ? [],
   }: rec {
-    profile = mkProfile "nixos" name;
-    theme = mkTheme "nixos" themeName;
+    profile = mkProfile "nixos" args.profile;
+    theme = mkTheme "nixos" args.theme;
     nixos = system:
       inputs.nixpkgs.lib.nixosSystem {
         inherit system;
@@ -23,15 +23,15 @@ in rec {
       };
   };
 
-  mkUser = {
-    name,
-    themeName,
-    description ? "User profile '${name}'",
+  mkUser = args @ {
+    profile,
+    theme,
+    description ? "User profile '${args.profile}'",
     groups ? [],
   }: rec {
     inherit description groups;
-    profile = mkProfile "home" name;
-    theme = mkTheme "home" themeName;
+    profile = mkProfile "home" args.profile;
+    theme = mkTheme "home" args.theme;
     home = system:
       inputs.home-manager.lib.homeManagerConfiguration {
         pkgs = inputs.nixpkgs.legacyPackages."${system}";
